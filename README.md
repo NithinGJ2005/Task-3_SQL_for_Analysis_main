@@ -1,77 +1,71 @@
-🗄️ Task 3 – SQL for Data Analysis
-📌 Objective
-To use SQL queries to extract and analyze structured data from a database using SQLite.
+# Task 3 – SQL for Data Analysis
 
-🛠 Tools Used
-SQLite
-Python (sqlite3 module)
-VS Code
-📂 Project Structure
-Task-3-SQL/ │ ├── ecommerce_queries.sql # All SQL queries ├── run_sqlite.py # Python script to execute SQL ├── ecommerce.db # SQLite database file └── screenshots/ # Output screenshots
+## 📌 Overview
+This task focuses on using SQL to extract and analyze data from an Ecommerce database.  
+The database was created using SQLite and includes customers, products, orders, and order items.
 
-🧱 Database Design
-Tables Created
-customers
-products
-orders
-Relationships
-orders.customer_id → references customers.customer_id
-orders.product_id → references products.product_id
-🧾 SQL Concepts Implemented
-✔ SELECT
-✔ WHERE
-✔ ORDER BY
-✔ GROUP BY
-✔ Aggregate Functions (SUM)
-✔ INNER JOIN
-✔ Subquery
-✔ CREATE VIEW
-✔ CREATE INDEX
+---
 
-🔍 Queries Performed
-1️⃣ SELECT with WHERE
-SELECT * FROM customers
-WHERE country = 'India';
+## 🎯 Objective
+- To perform data retrieval using SELECT
+- To filter records using WHERE
+- To sort data using ORDER BY
+- To group records using GROUP BY
+- To apply aggregate functions such as SUM and AVG
+- To use JOIN operations (INNER JOIN, LEFT JOIN)
+- To write subqueries
+- To create VIEW for analysis
+- To optimize queries using INDEX
 
-2️⃣ ORDER BY
-SELECT * FROM products
-ORDER BY price DESC;
+---
 
-3️⃣ GROUP BY with SUM
-SELECT customer_id, SUM(total_amount) AS total_spent
-FROM orders
-GROUP BY customer_id;
+## 🛠 Tools Used
+- SQLite Online
+- SQL
+- GitHub
 
-4️⃣ INNER JOIN
-SELECT c.customer_name, o.total_amount
-FROM customers c
-INNER JOIN orders o
-ON c.customer_id = o.customer_id;
+---
 
-5️⃣ Subquery
-SELECT customer_name
-FROM customers
-WHERE customer_id IN (
-    SELECT customer_id
-    FROM orders
-    GROUP BY customer_id
-    HAVING SUM(total_amount) > 30000
-);
+## 🗂 Database Structure
 
-6️⃣ View Creation
-CREATE VIEW high_value_customers AS
-SELECT customer_id, SUM(total_amount) AS total_spent
-FROM orders
-GROUP BY customer_id
-HAVING total_spent > 30000;
+The database contains the following tables:
 
-7️⃣ Index Creation
-CREATE INDEX idx_customer_id
-ON orders(customer_id);
-📊 Output: Screenshots of executed queries and results
+1. customers  
+2. products  
+3. orders  
+4. order_items  
 
-🎯 Outcome: Successfully created a relational database using SQLite, Executed multiple SQL queries for data analysis, Demonstrated understanding of joins, aggregation, subqueries, views, and indexing.
+These tables simulate a basic Ecommerce system.
 
-👨‍💻 Author
+---
 
-Nithin G J
+## 🔍 Operations Performed
+
+### 1. Table Creation
+Created relational tables with primary keys.
+
+### 2. Data Insertion
+Inserted sample Ecommerce data into all tables.
+
+### 3. Data Analysis Queries
+Performed:
+
+- SELECT queries
+- WHERE filtering
+- ORDER BY sorting
+- GROUP BY aggregation
+- SUM and AVG calculations
+- INNER JOIN and LEFT JOIN
+- Subqueries
+- Revenue calculation by category
+
+### 4. View Creation
+Created a view named `sales_summary` to summarize total spending and total orders per customer.
+
+### 5. Index Creation
+Created indexes on foreign key columns to improve query performance.
+
+---
+
+## 📁 Repository Structure
+
