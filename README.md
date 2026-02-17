@@ -67,5 +67,4 @@ Created indexes on foreign key columns to improve query performance.
 
 ---
 
-## 📁 Repository Structure
 
